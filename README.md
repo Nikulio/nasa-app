@@ -1,7 +1,7 @@
 # Nasa-app, test project for UK company
 
 ## Task :
-[Click here] to get a task description (https://jsainsburyplc.github.io/front-end-test/)
+[Click here](https://jsainsburyplc.github.io/front-end-test/) to get a task description
 
 ### Try yourself? Be my guest
 In your terminal :
