@@ -3,6 +3,7 @@ import "regenerator-runtime/runtime";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from "./containers/App/index"
+import ReduxThunk from "redux-thunk"
 
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from "redux"
@@ -16,7 +17,7 @@ const reduxDevTools =
 const store = createStore(
   reducers,
   reduxDevTools,
-  applyMiddleware()
+  applyMiddleware(ReduxThunk)
 )
 
 

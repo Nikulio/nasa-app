@@ -1,9 +1,15 @@
 import React, {Component} from "react"
+import Search from "../Search"
+import Posts from "../Posts"
+
 
 class App extends Component {
 	render() {
 		return (
-			<div>hello</div>
+			<div className="app">
+				<Search />
+				<Posts />
+			</div>
 		)
 	}
 }

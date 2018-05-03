@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import {initReducer} from "./initReducer"
+import {searchReducer} from "./searchReducer"
 
 export default combineReducers({
-  init: initReducer
+	posts : searchReducer
 });
