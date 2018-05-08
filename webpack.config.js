@@ -1,6 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const webpackDashboard = require('webpack-dashboard/plugin');
+const webpackDashboard = require("webpack-dashboard/plugin");
 
 module.exports = {
 	module: {
@@ -14,7 +14,7 @@ module.exports = {
 			},
 			{
 				test: /\.html$/,
-				use: [ 
+				use: [
 					{
 						loader: "html-loader",
 						options: { minimize: true }
@@ -28,14 +28,22 @@ module.exports = {
 			{
 				test: /\.(gif|png|jpe?g|svg)$/i,
 				use: [
-					'file-loader',
+					"file-loader",
 					{
-						loader: 'image-webpack-loader',
+						loader: "image-webpack-loader",
 						options: {
-							bypassOnDebug: true,
-						},
-					},
-				],
+							bypassOnDebug: true
+						}
+					}
+				]
+			},
+			{
+				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+				use: [
+					{
+						loader: "file-loader"
+					}
+				]
 			},
 			{
 				test: /\.scss$/,
@@ -58,12 +66,10 @@ module.exports = {
 			template: "./public/index.html",
 			filename: "./index.html"
 		}),
-		new CopyWebpackPlugin(
-			[
-				{ from: "public/favicon.ico", to: "./" },
-				{ from: "public/img/", to: "./img" }
-			]
-		),
-    new webpackDashboard(),
+		new CopyWebpackPlugin([
+			{ from: "public/favicon.ico", to: "./" },
+			{ from: "public/img/", to: "./img" }
+		]),
+		new webpackDashboard()
 	]
 };

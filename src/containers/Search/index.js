@@ -4,6 +4,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { searchAction, changeMode } from "../../actions";
 import SearchForm from "../../presentational/SearchForm";
+import "./index.scss";
 
 type State = {
 	inputValue: string

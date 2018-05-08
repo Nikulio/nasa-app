@@ -1,16 +1,16 @@
-import React, {Component} from "react"
-import Search from "../Search"
-import Posts from "../Posts"
-
+import React, { Component } from "react";
+import Search from "../Search";
+import Posts from "../Posts";
+import { Container } from "semantic-ui-react";
 
 class App extends Component {
 	render() {
 		return (
-			<div className="app">
+			<Container className="app">
 				<Search />
 				<Posts />
-			</div>
-		)
+			</Container>
+		);
 	}
 }
-export default App
+export default App;

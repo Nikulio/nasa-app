@@ -1,0 +1,29 @@
+button[type="submit"] {
+  position: absolute;
+  margin: 0 !important;
+  right: 0;
+  top: 0;
+}
+
+form {
+  position: relative;
+}
+
+.filter {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  &__elem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .ui {
+      margin-right: 5px;
+    }
+  }
+  &__elem:not(:last-of-type) {
+    margin-right: 20px;
+  }
+}
