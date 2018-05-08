@@ -12,7 +12,9 @@ type State = {
 
 type Props = {
 	searchAction: (inputValue?: string) => mixed,
-	changeMode: (val?: string) => mixed
+	changeMode: (val?: string) => mixed,
+	loader: boolean,
+	mode: string
 };
 
 class Search extends React.Component<Props, State> {
@@ -29,8 +31,8 @@ class Search extends React.Component<Props, State> {
 		this.props.searchAction(inputValue);
 	};
 
-	handleRadioChange = (e: SyntheticInputEvent<>) => {
-		this.props.changeMode(e.target.value);
+	handleRadioChange = ({ value }: { value: string }) => {
+		this.props.changeMode(value);
 	};
 
 	inputHandle = (e: SyntheticInputEvent<>) => {
@@ -38,19 +40,26 @@ class Search extends React.Component<Props, State> {
 	};
 
 	render() {
+		const { loader, mode } = this.props;
+		console.log(mode);
 		return (
 			<SearchForm
+				loader={loader.loader ? true : false}
 				title="NASA Search"
 				inputHandle={this.inputHandle}
 				radioChangeHandle={this.handleRadioChange}
 				submitHandle={this.handleSubmit}
+				mode={mode}
 			/>
 		);
 	}
 }
 
 function mapStateToProps(state) {
-	return {};
+	return {
+		loader: state.loader,
+		mode: state.posts.mode
+	};
 }
 
 const mapDispatchToProps = {

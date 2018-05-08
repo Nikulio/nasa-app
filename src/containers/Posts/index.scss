@@ -1,0 +1,21 @@
+.posts {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	margin-top: 40px;
+	.post {
+		margin: 0 0 20px 0 !important;
+		&.post--empty {
+			align-items: center;
+			img {
+				width: 320px;
+			}
+		}
+		.description {
+			max-height: 100px;
+			height: 100%;
+			overflow: hidden;
+		}
+	}
+}

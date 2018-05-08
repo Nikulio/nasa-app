@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
-import {searchReducer} from "./searchReducer"
+import { searchReducer } from "./searchReducer";
+import { loaderReducer } from "./loaderReducer";
 
 export default combineReducers({
-	posts : searchReducer
+	posts: searchReducer,
+	loader: loaderReducer
 });

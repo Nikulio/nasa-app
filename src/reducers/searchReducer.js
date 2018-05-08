@@ -1,5 +1,5 @@
-import * as consts from "../actions/consts"
-import _ from "lodash"
+import * as consts from "../actions/consts";
+import _ from "lodash";
 
 const initialState = {
 	items: [],
@@ -8,19 +8,17 @@ const initialState = {
 
 export function searchReducer(state = initialState, action) {
 	switch (action.type) {
-		case(consts.SEARCH_INIT) :
+		case consts.SEARCH_INIT:
 			return {
-				items: [...state, ...action.payload],
+				items: [...action.payload],
 				mode: state.mode
 			};
-		case(consts.CHANGE_MODE) :
-			console.log("---", state.items);
+		case consts.CHANGE_MODE:
 			return {
 				items: [...state.items],
 				mode: action.payload
 			};
 		default:
-			return state
+			return state;
 	}
 }
-

@@ -6,22 +6,26 @@ import { Header, Radio, Form, Button } from "semantic-ui-react";
 type Props = {
 	title: string,
 	inputHandle: (value: SyntheticInputEvent<>) => mixed,
-	radioChangeHandle: (value: SyntheticInputEvent<>) => mixed,
-	submitHandle: (value: SyntheticEvent<>) => mixed
+	radioChangeHandle: (value: string) => mixed,
+	submitHandle: (value: SyntheticEvent<>) => mixed,
+	loader: boolean,
+	mode: string
 };
 
 const SearchForm = ({
 	title,
 	inputHandle,
 	radioChangeHandle,
-	submitHandle
+	submitHandle,
+	loader,
+	mode
 }: Props) => {
 	return (
 		<div>
 			<Header as="h1" textAlign="center">
 				{title}
 			</Header>
-			<Form action="#" id="search-form">
+			<Form action="#" id="search-form" loading={loader}>
 				<input
 					type="text"
 					placeholder="Type your search request here"
@@ -30,23 +34,31 @@ const SearchForm = ({
 				/>
 				<div className="filter">
 					<div className="filter__elem">
-						<Radio
-							slider
-							type="radio"
-							name="radio-button"
-							value="image"
-							defaultChecked={true}
-							onChange={radioChangeHandle}
-						/>Image
+						<Form.Field>
+							<Radio
+								slider
+								type="radio"
+								name="radio-button"
+								value="image"
+								label="Image"
+								checked={mode === "image"}
+								// defaultChecked={true}
+								onChange={radioChangeHandle}
+							/>
+						</Form.Field>
 					</div>
 					<div className="filter__elem">
-						<Radio
-							slider
-							type="radio"
-							name="radio-button"
-							value="video"
-							onChange={radioChangeHandle}
-						/>Video
+						<Form.Field>
+							<Radio
+								slider
+								type="radio"
+								name="radio-button"
+								value="video"
+								checked={mode === "video"}
+								label="Video"
+								onChange={radioChangeHandle}
+							/>
+						</Form.Field>
 					</div>
 				</div>
 				<Button icon="send" type="submit" onClick={submitHandle} />

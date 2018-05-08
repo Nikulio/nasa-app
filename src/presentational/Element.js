@@ -1,38 +1,26 @@
 //@flow
-import * as React from "react"
-import { Card, Icon } from 'semantic-ui-react'
+import * as React from "react";
+import { Card, Icon } from "semantic-ui-react";
 
-
-const extra = (
-	<a>
-		<Icon name='user' />
-		16 Friends
-	</a>
-)
+const extra = <a>click here for more info</a>;
 
 type Props = {
 	classy: string,
-	img : string,
-	desc : string,
-	title: string,
-	key: string
-}
+	img: string,
+	desc?: string,
+	title: string
+};
 
-
-const Elements = ({classy, img, desc, title, key}:Props) => {
+const Element = ({ classy, img, desc, title }: Props) => {
 	return (
 		<Card
 			className={classy}
-			key={key}
 			image={img}
 			header={title}
-			// meta='Friend'
 			description={desc}
 			extra={extra}
 		/>
-	)
-}
+	);
+};
 
-export default Elements
-
-
+export default Element;
