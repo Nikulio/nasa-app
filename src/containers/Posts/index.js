@@ -42,31 +42,36 @@ class Posts extends Component<Props> {
 							/>
 						);
 					} else if (value.data[0].description === value.data[0].title) {
-						<Element
-							classy="post post--image"
-							key={value.data[0].nasa_id}
-							img={value.links[0].href}
-							title={value.data[0].title}
-						/>;
-					}
-				} else if (mode === "video" && value.data[0].media_type === "video") {
-					if (!(value.data[0].description === value.data[0].title)) {
 						return (
 							<Element
 								classy="post post--image"
 								key={value.data[0].nasa_id}
 								img={value.links[0].href}
+								title={value.data[0].title}
+							/>
+						);
+					}
+				} else if (mode === "video" && value.data[0].media_type === "video") {
+					let videoImage = "/img/video.png";
+					if (!(value.data[0].description === value.data[0].title)) {
+						return (
+							<Element
+								classy="post post--video"
+								key={value.data[0].nasa_id}
+								img={videoImage}
 								desc={value.data[0].description}
 								title={value.data[0].title}
 							/>
 						);
 					} else if (value.data[0].description === value.data[0].title) {
-						<Element
-							classy="post post--image"
-							key={value.data[0].nasa_id}
-							img={value.links[0].href}
-							title={value.data[0].title}
-						/>;
+						return (
+							<Element
+								classy="post post--video"
+								key={value.data[0].nasa_id}
+								img={videoImage}
+								title={value.data[0].title}
+							/>
+						);
 					}
 				}
 			})

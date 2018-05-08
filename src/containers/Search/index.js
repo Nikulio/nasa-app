@@ -13,7 +13,9 @@ type State = {
 type Props = {
 	searchAction: (inputValue?: string) => mixed,
 	changeMode: (val?: string) => mixed,
-	loader: boolean,
+	loader: {
+		loader: boolean
+	},
 	mode: string
 };
 
@@ -31,8 +33,8 @@ class Search extends React.Component<Props, State> {
 		this.props.searchAction(inputValue);
 	};
 
-	handleRadioChange = ({ value }: { value: string }) => {
-		this.props.changeMode(value);
+	handleRadioChange = (val: string) => {
+		this.props.changeMode(val);
 	};
 
 	inputHandle = (e: SyntheticInputEvent<>) => {
@@ -41,10 +43,9 @@ class Search extends React.Component<Props, State> {
 
 	render() {
 		const { loader, mode } = this.props;
-		console.log(mode);
 		return (
 			<SearchForm
-				loader={loader.loader ? true : false}
+				loader={!!loader.loader}
 				title="NASA Search"
 				inputHandle={this.inputHandle}
 				radioChangeHandle={this.handleRadioChange}

@@ -9,7 +9,7 @@ type Props = {
 	radioChangeHandle: (value: string) => mixed,
 	submitHandle: (value: SyntheticEvent<>) => mixed,
 	loader: boolean,
-	mode: string
+	mode?: string
 };
 
 const SearchForm = ({
@@ -42,8 +42,7 @@ const SearchForm = ({
 								value="image"
 								label="Image"
 								checked={mode === "image"}
-								// defaultChecked={true}
-								onChange={radioChangeHandle}
+								onChange={(e, { value }) => radioChangeHandle(value)}
 							/>
 						</Form.Field>
 					</div>
@@ -54,9 +53,9 @@ const SearchForm = ({
 								type="radio"
 								name="radio-button"
 								value="video"
-								checked={mode === "video"}
 								label="Video"
-								onChange={radioChangeHandle}
+								checked={mode === "video"}
+								onChange={(e, { value }) => radioChangeHandle(value)}
 							/>
 						</Form.Field>
 					</div>
