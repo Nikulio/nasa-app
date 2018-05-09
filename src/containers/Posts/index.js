@@ -6,6 +6,7 @@ import _ from "lodash";
 import Elements from "../../presentational/Elements.js";
 import Element from "../../presentational/Element.js";
 import { Header } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import "./index.scss";
 
 type Props = {
@@ -33,22 +34,37 @@ class Posts extends Component<Props> {
 				if (mode === "image" && value.data[0].media_type === "image") {
 					if (!(value.data[0].description === value.data[0].title)) {
 						return (
-							<Element
-								classy="post post--image"
+							<Link
 								key={value.data[0].nasa_id}
-								img={value.links[0].href}
-								desc={value.data[0].description}
-								title={value.data[0].title}
-							/>
+								to={{
+									pathname: `post/:${value.data[0].nasa_id}`,
+									state: { ...value }
+								}}
+							>
+								<Element
+									classy="post post--image"
+									img={value.links[0].href}
+									desc={value.data[0].description}
+									title={value.data[0].title}
+								/>
+							</Link>
 						);
 					} else if (value.data[0].description === value.data[0].title) {
 						return (
-							<Element
-								classy="post post--image"
+							<Link
 								key={value.data[0].nasa_id}
-								img={value.links[0].href}
-								title={value.data[0].title}
-							/>
+								to={{
+									pathname: `post/:${value.data[0].nasa_id}`,
+									state: { ...value }
+								}}
+							>
+								<Element
+									classy="post post--image"
+									key={value.data[0].nasa_id}
+									img={value.links[0].href}
+									title={value.data[0].title}
+								/>
+							</Link>
 						);
 					}
 				} else if (mode === "video" && value.data[0].media_type === "video") {

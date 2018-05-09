@@ -26,3 +26,18 @@
 		}
 	}
 }
+
+.full-post {
+	padding: 40px 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	* {
+		width: 100%;
+	}
+	.full-post__created {
+		color: #635d5d;
+		font-style: italic;
+		margin: 10px 0;
+	}
+}
