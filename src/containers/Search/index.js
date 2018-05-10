@@ -27,7 +27,7 @@ class Search extends React.Component<Props, State> {
 		};
 	}
 
-	handleSubmit = (e: SyntheticEvent<>) => {
+	handleSubmit = (e : SyntheticEvent<>) => {
 		e.preventDefault();
 		let { inputValue } = this.state;
 		this.props.searchAction(inputValue);

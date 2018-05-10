@@ -1,12 +1,12 @@
 // @flow
 
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, {Component} from "react";
+import {connect} from "react-redux";
 import _ from "lodash";
 import Elements from "../../presentational/Elements.js";
 import Element from "../../presentational/Element.js";
-import { Header } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import {Header} from "semantic-ui-react";
+import {Link} from "react-router-dom";
 import "./index.scss";
 
 type Props = {
@@ -27,8 +27,8 @@ type Props = {
 
 class Posts extends Component<Props> {
 	renderPosts = () => {
-		const { posts } = this.props;
-		let { mode, items } = posts;
+		const {posts} = this.props;
+		let {mode, items} = posts;
 		return !_.isEmpty(items) ? (
 			items.map((value, key) => {
 				if (mode === "image" && value.data[0].media_type === "image") {
@@ -38,7 +38,7 @@ class Posts extends Component<Props> {
 								key={value.data[0].nasa_id}
 								to={{
 									pathname: `post/:${value.data[0].nasa_id}`,
-									state: { ...value }
+									state: {...value}
 								}}
 							>
 								<Element
@@ -55,7 +55,7 @@ class Posts extends Component<Props> {
 								key={value.data[0].nasa_id}
 								to={{
 									pathname: `post/:${value.data[0].nasa_id}`,
-									state: { ...value }
+									state: {...value}
 								}}
 							>
 								<Element
@@ -71,33 +71,49 @@ class Posts extends Component<Props> {
 					let videoImage = "/img/video.png";
 					if (!(value.data[0].description === value.data[0].title)) {
 						return (
-							<Element
-								classy="post post--video"
+							<Link
 								key={value.data[0].nasa_id}
-								img={videoImage}
-								desc={value.data[0].description}
-								title={value.data[0].title}
-							/>
+								to={{
+									pathname: `post/:${value.data[0].nasa_id}`,
+									state: {...value}
+								}}
+							>
+								<Element
+									classy="post post--video"
+									key={value.data[0].nasa_id}
+									img={videoImage}
+									desc={value.data[0].description}
+									title={value.data[0].title}
+								/>
+							</Link>
 						);
 					} else if (value.data[0].description === value.data[0].title) {
 						return (
-							<Element
-								classy="post post--video"
+							<Link
 								key={value.data[0].nasa_id}
-								img={videoImage}
-								title={value.data[0].title}
-							/>
+								to={{
+									pathname: `post/:${value.data[0].nasa_id}`,
+									state: {...value}
+								}}
+							>
+								<Element
+									classy="post post--video"
+									key={value.data[0].nasa_id}
+									img={videoImage}
+									title={value.data[0].title}
+								/>
+							</Link>
 						);
 					}
 				}
 			})
 		) : (
 			<div className="post post--empty">
-				<img src="/img/not_found.jpg" alt="" />
+				<img src="/img/not_found.jpg" alt=""/>
 			</div>
 		);
 	};
-
+	
 	render() {
 		return <Elements>{this.renderPosts()}</Elements>;
 	}

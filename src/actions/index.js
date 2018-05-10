@@ -10,7 +10,6 @@ export const searchAction = (val: string) => async dispatch => {
 };
 
 export const changeMode = (val: string) => {
-	console.log(val);
 	return {
 		type: consts.CHANGE_MODE,
 		payload: val

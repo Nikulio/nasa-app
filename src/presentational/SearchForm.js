@@ -21,7 +21,7 @@ const SearchForm = ({
 	mode
 }: Props) => {
 	return (
-		<div>
+		<div className="header">
 			<Header as="h1" textAlign="center">
 				{title}
 			</Header>

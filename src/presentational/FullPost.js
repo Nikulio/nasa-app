@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Header } from "semantic-ui-react";
 const FullPost = props => {
-	console.log(props.location.state);
 	let { data, links, href } = props.location.state;
 	return (
 		<div className="full-post">
